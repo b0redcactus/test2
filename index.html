@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV és Alállomási Tervtípusok Ellenőrző</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PV és Alállomási Tervtípusok Ellenőrző</h1>
+            <p>Ellenőrizd, hogy minden szükséges terv benne van-e a tervcsomagban</p>
+        </header>
+
+        <div class="controls">
+            <button id="checkAll" class="btn btn-primary">Összes kijelölése</button>
+            <button id="uncheckAll" class="btn btn-secondary">Összes törlése</button>
+            <button id="resetAll" class="btn btn-reset">Visszaállítás</button>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-text" id="progressText">0/0 kiválasztva</span>
+        </div>
+
+        <main class="content">
+            <!-- PV Tervek -->
+            <section class="category-section">
+                <h2 class="category-title">
+                    <span class="category-icon">☀️</span>
+                    PV Tervek
+                </h2>
+                
+                <div class="subcategory">
+                    <h3>Layouts (Elrendezési tervek)</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="layouts">
+                            <span class="plan-name">Cable Trench Layout</span>
+                            <span class="plan-description">Kábelárok elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="layouts">
+                            <span class="plan-name">Monitoring Layout</span>
+                            <span class="plan-description">Monitoring rendszer elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="layouts">
+                            <span class="plan-name">PV Module Layout</span>
+                            <span class="plan-description">PV modulok elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="layouts">
+                            <span class="plan-name">Inverter Layout</span>
+                            <span class="plan-description">Inverterek elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="layouts">
+                            <span class="plan-name">Fence Layout</span>
+                            <span class="plan-description">Kerítés elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="layouts">
+                            <span class="plan-name">Access Road Layout</span>
+                            <span class="plan-description">Hozzáférhető út elrendezése</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3>Single Line Diagram (SLD)</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="sld">
+                            <span class="plan-name">Auxiliary SLD</span>
+                            <span class="plan-description">Segédáramkörök egyvonalas ábrája</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="sld">
+                            <span class="plan-name">Main SLD</span>
+                            <span class="plan-description">Főáramkörök egyvonalas ábrája</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="sld">
+                            <span class="plan-name">DC SLD</span>
+                            <span class="plan-description">DC áramkörök egyvonalas ábrája</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="sld">
+                            <span class="plan-name">AC SLD</span>
+                            <span class="plan-description">AC áramkörök egyvonalas ábrája</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3>Civil Engineering</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="civil">
+                            <span class="plan-name">Foundation Plan</span>
+                            <span class="plan-description">Alapozási terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="civil">
+                            <span class="plan-name">Drainage Plan</span>
+                            <span class="plan-description">Vízelvezetési terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="civil">
+                            <span class="plan-name">Grading Plan</span>
+                            <span class="plan-description">Tereprendezési terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="civil">
+                            <span class="plan-name">Erosion Control Plan</span>
+                            <span class="plan-description">Talajerózió elleni védelem</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3>Electrical</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="electrical">
+                            <span class="plan-name">Cable Schedule</span>
+                            <span class="plan-description">Kábeljegyzék</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="electrical">
+                            <span class="plan-name">Grounding Plan</span>
+                            <span class="plan-description">Földelési terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="electrical">
+                            <span class="plan-name">Lightning Protection</span>
+                            <span class="plan-description">Villámvédelem</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="electrical">
+                            <span class="plan-name">Cable Routing Plan</span>
+                            <span class="plan-description">Kábelvezetési terv</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3>Structural</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="structural">
+                            <span class="plan-name">Mounting Structure Plan</span>
+                            <span class="plan-description">Rögzítő szerkezet terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="structural">
+                            <span class="plan-name">Wind Load Analysis</span>
+                            <span class="plan-description">Szélerő elemzés</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="pv" data-subcategory="structural">
+                            <span class="plan-name">Snow Load Analysis</span>
+                            <span class="plan-description">Hóterhelés elemzés</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alállomási Tervek -->
+            <section class="category-section">
+                <h2 class="category-title">
+                    <span class="category-icon">⚡</span>
+                    Alállomási Tervek
+                </h2>
+                
+                <div class="subcategory">
+                    <h3>Layouts (Elrendezési tervek)</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="layouts">
+                            <span class="plan-name">Equipment Layout</span>
+                            <span class="plan-description">Berendezések elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="layouts">
+                            <span class="plan-name">Cable Trench Layout</span>
+                            <span class="plan-description">Kábelárok elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="layouts">
+                            <span class="plan-name">Control Room Layout</span>
+                            <span class="plan-description">Irányítóterem elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="layouts">
+                            <span class="plan-name">Transformer Layout</span>
+                            <span class="plan-description">Transzformátor elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="layouts">
+                            <span class="plan-name">Switchgear Layout</span>
+                            <span class="plan-description">Kapcsolóberendezés elrendezése</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="layouts">
+                            <span class="plan-name">Fence Layout</span>
+                            <span class="plan-description">Kerítés elrendezése</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3>Single Line Diagram (SLD)</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="sld">
+                            <span class="plan-name">Main SLD</span>
+                            <span class="plan-description">Főáramkörök egyvonalas ábrája</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="sld">
+                            <span class="plan-name">Auxiliary SLD</span>
+                            <span class="plan-description">Segédáramkörök egyvonalas ábrája</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="sld">
+                            <span class="plan-name">Protection SLD</span>
+                            <span class="plan-description">Védelmi áramkörök egyvonalas ábrája</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="sld">
+                            <span class="plan-name">Control SLD</span>
+                            <span class="plan-description">Szabályozási áramkörök egyvonalas ábrája</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3>Civil Engineering</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="civil">
+                            <span class="plan-name">Foundation Plan</span>
+                            <span class="plan-description">Alapozási terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="civil">
+                            <span class="plan-name">Building Plan</span>
+                            <span class="plan-description">Épület terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="civil">
+                            <span class="plan-name">Drainage Plan</span>
+                            <span class="plan-description">Vízelvezetési terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="civil">
+                            <span class="plan-name">Access Road Plan</span>
+                            <span class="plan-description">Hozzáférhető út terv</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3>Electrical</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="electrical">
+                            <span class="plan-name">Cable Schedule</span>
+                            <span class="plan-description">Kábeljegyzék</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="electrical">
+                            <span class="plan-name">Grounding Plan</span>
+                            <span class="plan-description">Földelési terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="electrical">
+                            <span class="plan-name">Lightning Protection</span>
+                            <span class="plan-description">Villámvédelem</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="electrical">
+                            <span class="plan-name">Control Cable Plan</span>
+                            <span class="plan-description">Szabályozókábel terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="electrical">
+                            <span class="plan-name">Power Cable Plan</span>
+                            <span class="plan-description">Erőkábel terv</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3>Protection & Control</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="protection">
+                            <span class="plan-name">Protection Scheme</span>
+                            <span class="plan-description">Védelmi rendszer</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="protection">
+                            <span class="plan-name">Relay Settings</span>
+                            <span class="plan-description">Relé beállítások</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="protection">
+                            <span class="plan-name">SCADA System</span>
+                            <span class="plan-description">SCADA rendszer</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="protection">
+                            <span class="plan-name">Communication Plan</span>
+                            <span class="plan-description">Kommunikációs terv</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3>Mechanical</h3>
+                    <div class="plan-grid">
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="mechanical">
+                            <span class="plan-name">Ventilation Plan</span>
+                            <span class="plan-description">Szellőztetési terv</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="mechanical">
+                            <span class="plan-name">Fire Protection</span>
+                            <span class="plan-description">Tűzvédelem</span>
+                        </label>
+                        <label class="plan-item">
+                            <input type="checkbox" data-category="substation" data-subcategory="mechanical">
+                            <span class="plan-name">HVAC System</span>
+                            <span class="plan-description">Klímaberendezés</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Használd ezt az eszközt a tervcsomagok teljességének ellenőrzésére</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
